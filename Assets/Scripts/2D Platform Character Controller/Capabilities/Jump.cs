@@ -15,7 +15,20 @@ namespace Shinjingi
         private Ground _ground;
         private Vector2 _velocity;
 
-        private int _jumpPhase;
+        public int JumpPhase
+        {
+            get { return _jumpPhase; }
+            set
+            {
+                _jumpPhase = value;
+                if (_jumpPhase == 1)
+                {
+                    GetComponent<AudioController>().PlayJumpSound();
+                }
+            }
+        }
+        private int _jumpPhase; //edit: changed this into a public property for audio
+
         private float _defaultGravityScale, _jumpSpeed;
 
         private bool _desiredJump, _onGround;
@@ -44,7 +57,7 @@ namespace Shinjingi
 
             if (_onGround)
             {
-                _jumpPhase = 0;
+                JumpPhase = 0;
             }
 
             if (_desiredJump)
@@ -70,9 +83,9 @@ namespace Shinjingi
         }
         private void JumpAction()
         {
-            if (_onGround || _jumpPhase < _maxAirJumps)
+            if (_onGround || JumpPhase < _maxAirJumps)
             {
-                _jumpPhase += 1;
+                JumpPhase += 1;
                 
                 _jumpSpeed = Mathf.Sqrt(-2f * Physics2D.gravity.y * _jumpHeight);
                 
