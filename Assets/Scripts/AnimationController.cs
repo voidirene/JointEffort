@@ -9,6 +9,8 @@ public class AnimationController : MonoBehaviour
     private Ground ground;
     private Animator animator;
 
+    private int lastDirectionPressed = 1;
+
     private void Start()
     {
         player = GetComponent<Controller>();
@@ -27,7 +29,7 @@ public class AnimationController : MonoBehaviour
             // }
 
             //JUMP
-            //TODO: this is broken
+            //TODO: this is broken (?)
             if (ground.OnGround == false)
             {
                 animator.SetBool("isOnAir", true);
@@ -39,9 +41,17 @@ public class AnimationController : MonoBehaviour
             }
 
             //WALK
-            if (player.input.RetrieveMoveInput() != 0)
+            float moveInput = player.input.RetrieveMoveInput();
+            if (moveInput != 0)
             {
                 animator.SetBool("isWalking", true);
+
+                //For flipping the player sprite
+                if (moveInput != lastDirectionPressed)
+                {
+                    Flip();
+                    lastDirectionPressed = (int) moveInput;
+                }
                 return;
             }
             else
@@ -53,5 +63,13 @@ public class AnimationController : MonoBehaviour
         // {
         //     animator.speed = 0; //If the player has won, or has paused the game, pause the animator
         // }
+    }
+
+    //Flips the player to face the other way
+    void Flip()
+    {
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
     }
 }
