@@ -8,8 +8,8 @@ public class AudioController : MonoBehaviour
     private Controller player;
     private Jump jumpScript;
     private Ground ground;
-    private int numberOfJumps = 0;
-    private bool jumped = false;
+    // private int numberOfJumps = 0;
+    // private bool jumped = false;
     
     private AudioSource source;
     [SerializeField] private AudioClip jumpAudioClip;
