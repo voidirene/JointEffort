@@ -9,6 +9,11 @@ public class AnimationController : MonoBehaviour
     private Ground ground;
     private Animator animator;
 
+    private SpriteRenderer spriteRenderer;
+    [SerializeField] private Transform magnet;
+    [SerializeField] private Transform magnetPoint;
+    private float magnetXPos;
+    private float magnetPointXPos;
     private int lastDirectionPressed = 1;
 
     private void Start()
@@ -16,6 +21,10 @@ public class AnimationController : MonoBehaviour
         player = GetComponent<Controller>();
         ground = GetComponent<Ground>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        magnetXPos = magnet.localPosition.x;
+        magnetPointXPos = magnetPoint.localPosition.x;
     }
 
     private void Update()
@@ -68,8 +77,19 @@ public class AnimationController : MonoBehaviour
     //Flips the player to face the other way
     void Flip()
     {
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
+        if (spriteRenderer.flipX == true)
+        {
+            spriteRenderer.flipX = false;
+            magnet.localPosition = new Vector2(magnetXPos, 0);
+            magnetPoint.localPosition = new Vector2(magnetPointXPos, 0);
+            magnet.GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else
+        {
+            spriteRenderer.flipX = true;
+            magnet.localPosition = new Vector2(-magnetXPos, 0);
+            magnetPoint.localPosition = new Vector2(-magnetPointXPos, 0);
+            magnet.GetComponent<SpriteRenderer>().flipX = true;
+        }
     }
 }

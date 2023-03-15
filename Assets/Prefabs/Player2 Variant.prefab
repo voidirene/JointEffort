@@ -8,13 +8,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 919077793959378040, guid: 769cdde23bc277d4391da1ad1ce0a61c, type: 3}
+      propertyPath: inputAxisName
+      value: UseHook2
+      objectReference: {fileID: 0}
     - target: {fileID: 1014957001480658815, guid: 769cdde23bc277d4391da1ad1ce0a61c, type: 3}
       propertyPath: input
       value: 
       objectReference: {fileID: 11400000, guid: b55609bdde890284aa89624fdf437696, type: 2}
+    - target: {fileID: 1081150611481697923, guid: 769cdde23bc277d4391da1ad1ce0a61c, type: 3}
+      propertyPath: VerticalAxis
+      value: Vertical2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081150611481697923, guid: 769cdde23bc277d4391da1ad1ce0a61c, type: 3}
+      propertyPath: horizontalAxis
+      value: Horizontal2
+      objectReference: {fileID: 0}
     - target: {fileID: 2139470378577011235, guid: 769cdde23bc277d4391da1ad1ce0a61c, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2139470378577011235, guid: 769cdde23bc277d4391da1ad1ce0a61c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -60,6 +72,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5416806634131223545, guid: 769cdde23bc277d4391da1ad1ce0a61c, type: 3}
+      propertyPath: inputAxisName
+      value: UseMagnet2
+      objectReference: {fileID: 0}
     - target: {fileID: 5593369646898116123, guid: 769cdde23bc277d4391da1ad1ce0a61c, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -68,6 +84,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 18e1e3eb84c2fa24fb9c3ed9ec662728, type: 2}
+    - target: {fileID: 8303964439396824691, guid: 769cdde23bc277d4391da1ad1ce0a61c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 596399881, guid: 1787a5d14ff7c5f4284cc0d540e49554, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

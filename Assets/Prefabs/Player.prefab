@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 5553869183651997996}
   - component: {fileID: 6847937945672111405}
   - component: {fileID: 3773167401048443692}
+  - component: {fileID: 1081150611481697923}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -40,6 +41,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3652037868281632875}
+  - {fileID: 2579793444658015278}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -83,7 +85,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 518102831, guid: 0068d3d61be4d3e48b879051d6b9642d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -255,6 +257,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6fb3482ced031846bf77e5ca235aa23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  magnet: {fileID: 3652037868281632875}
+  magnetPoint: {fileID: 109551051539854597}
 --- !u!82 &6847937945672111405
 AudioSource:
   m_ObjectHideFlags: 0
@@ -364,6 +368,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpAudioClip: {fileID: 8300000, guid: 508cbcaea3e04db409670f296f10ff04, type: 3}
+--- !u!114 &1081150611481697923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2375212572078115222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2697e61c5bcaca48a18973fc2dbd093, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalAxis: Horizontal
+  swingForce: 300
 --- !u!1 &4817957707180124250
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,6 +482,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputAxisName: UseMagnet
   magnetPoint: {fileID: 3028956712276910267}
+  isHolding:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 919077793959378040}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  isNotHolding:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 919077793959378040}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &5787723283713290563
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,5 +594,124 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceptedTags:
   - Box
-  detectedObject: {fileID: 0}
-  heldObject: {fileID: 0}
+--- !u!1 &7071010779669259410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2579793444658015278}
+  - component: {fileID: 3895193318194561044}
+  - component: {fileID: 919077793959378040}
+  - component: {fileID: 1193969337668041445}
+  m_Layer: 0
+  m_Name: Hook
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2579793444658015278
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7071010779669259410}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2139470378577011235}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &3895193318194561044
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7071010779669259410}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &919077793959378040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7071010779669259410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1a5eb093ff1874998b383d44342e2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputAxisName: UseHook
+  hookThrow: {fileID: 1193969337668041445}
+  isSwinging:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5416806634131223545}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  isNotSwinging:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5416806634131223545}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &1193969337668041445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7071010779669259410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44f608511c13cee4cba709e2d5001283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectedHooks: []
+  hookPoint: {fileID: 6963430188982353257, guid: 03cb6e000b4f38b4d8950eec1ebe6cdc, type: 3}
+  magnet: {fileID: 4817957707180124250}
+  player: {fileID: 2375212572078115222}

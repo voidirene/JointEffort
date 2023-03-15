@@ -47,7 +47,8 @@ public class MagnetPoint : MonoBehaviour
         }
     }
     void OnTriggerExit2D(Collider2D other)
-    {
-        detectedObject = null;
+    {   
+        if (detectedObject != null && other.CompareTag(detectedObject.tag))
+            detectedObject = null;
     }
 }

@@ -2,3 +2,5 @@ Sprites downloaded from OpenGameArt.org, original creators listed below:
 
 Giant Button sprite by Jetrel
 Laser Gates by Fleurman
+Orbs by Amon
+Atlas2 credits within the folder itself
