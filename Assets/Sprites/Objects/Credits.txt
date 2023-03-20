@@ -4,3 +4,4 @@ Giant Button sprite by Jetrel
 Laser Gates by Fleurman
 Orbs by Amon
 Atlas2 credits within the folder itself
+Capsule by SCaydi

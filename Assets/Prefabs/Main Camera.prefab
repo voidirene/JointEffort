@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6825622747229268226}
   - component: {fileID: 6825622747229268227}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ScreenEdge (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6825622747229268225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.1, z: 0}
+  m_LocalPosition: {x: 0, y: 5.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -75,7 +75,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 18, y: 0.25}
+  m_Size: {x: 21.5, y: 0.25}
   m_EdgeRadius: 0
 --- !u!1 &6825622747273328189
 GameObject:
@@ -659,7 +659,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -688,6 +688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 2139470378577011235, guid: 769cdde23bc277d4391da1ad1ce0a61c, type: 3}
+  yHeight: 3
   smoothTime: 0.5
 --- !u!82 &6907043528892944549
 AudioSource:
@@ -703,7 +704,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1007,7 +1008,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6825622748300459220}
   - component: {fileID: 6825622748300459221}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ScreenEdge (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1022,7 +1023,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6825622748300459219}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.9, y: 0, z: 0}
+  m_LocalPosition: {x: 10.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1072,7 +1073,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.25, y: 11}
+  m_Size: {x: 0.25, y: 12}
   m_EdgeRadius: 0
 --- !u!1 &6825622748395089192
 GameObject:
@@ -1250,7 +1251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6825622748485874162}
   - component: {fileID: 6825622748485874163}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ScreenEdge (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1265,7 +1266,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6825622748485874161}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -5.1, z: 0}
+  m_LocalPosition: {x: 0, y: -5.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1315,7 +1316,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 18, y: 0.25}
+  m_Size: {x: 21.5, y: 0.25}
   m_EdgeRadius: 0
 --- !u!1 &6825622748609766800
 GameObject:
@@ -1535,7 +1536,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6825622748773549516}
   - component: {fileID: 6825622748773549517}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ScreenEdge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1550,7 +1551,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6825622748773549515}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.9, y: 0, z: 0}
+  m_LocalPosition: {x: -10.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1600,7 +1601,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.25, y: 11}
+  m_Size: {x: 0.25, y: 12}
   m_EdgeRadius: 0
 --- !u!1 &6825622748822469936
 GameObject:

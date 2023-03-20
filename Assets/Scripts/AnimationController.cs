@@ -16,6 +16,8 @@ public class AnimationController : MonoBehaviour
     private float magnetPointXPos;
     private int lastDirectionPressed = 1;
 
+    private bool pauseAnimations = false;
+
     private void Start()
     {
         player = GetComponent<Controller>();
@@ -29,49 +31,38 @@ public class AnimationController : MonoBehaviour
 
     private void Update()
     {
-        // if (!player.paused && !player.won)
-        // {
-            // animator.speed = 1; //If the player hasn't won yet and hasn't paused the game, play animations
-            // if (player.dead)
-            // {
-            //     animator.Play("Dead");
-            // }
+        if (pauseAnimations)
+            return;
+            
+        //JUMP
+        if (ground.OnGround == false)
+        {
+            animator.SetBool("isOnAir", true);
+            return;
+        }
+        else
+        {
+            animator.SetBool("isOnAir", false);
+        }
 
-            //JUMP
-            //TODO: this is broken (?)
-            if (ground.OnGround == false)
-            {
-                animator.SetBool("isOnAir", true);
-                return;
-            } 
-            else 
-            {
-                animator.SetBool("isOnAir", false);
-            }
+        //WALK
+        float moveInput = player.input.RetrieveMoveInput();
+        if (moveInput != 0)
+        {
+            animator.SetBool("isWalking", true);
 
-            //WALK
-            float moveInput = player.input.RetrieveMoveInput();
-            if (moveInput != 0)
+            //For flipping the player sprite
+            if (moveInput != lastDirectionPressed)
             {
-                animator.SetBool("isWalking", true);
-
-                //For flipping the player sprite
-                if (moveInput != lastDirectionPressed)
-                {
-                    Flip();
-                    lastDirectionPressed = (int) moveInput;
-                }
-                return;
+                Flip();
+                lastDirectionPressed = (int)moveInput;
             }
-            else
-            {
-                animator.SetBool("isWalking", false);
-            }
-        // }
-        // else
-        // {
-        //     animator.speed = 0; //If the player has won, or has paused the game, pause the animator
-        // }
+            return;
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+        }
     }
 
     //Flips the player to face the other way
@@ -81,15 +72,21 @@ public class AnimationController : MonoBehaviour
         {
             spriteRenderer.flipX = false;
             magnet.localPosition = new Vector2(magnetXPos, 0);
-            magnetPoint.localPosition = new Vector2(magnetPointXPos, 0);
+            magnetPoint.localPosition = new Vector2(magnetPointXPos, -0.11f);
             magnet.GetComponent<SpriteRenderer>().flipX = false;
         }
         else
         {
             spriteRenderer.flipX = true;
             magnet.localPosition = new Vector2(-magnetXPos, 0);
-            magnetPoint.localPosition = new Vector2(-magnetPointXPos, 0);
+            magnetPoint.localPosition = new Vector2(-magnetPointXPos, -0.11f);
             magnet.GetComponent<SpriteRenderer>().flipX = true;
         }
+    }
+
+    public void Explode()
+    {
+        pauseAnimations = true;
+        animator.SetBool("isExploding", true);
     }
 }

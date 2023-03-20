@@ -11,6 +11,13 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private UnityEvent unpauseGame;
     private bool isPaused;
 
+    private Transform winModal;
+    private bool isBlueReady = false;
+    private bool isRedReady = false;
+    [SerializeField] private UnityEvent winGame;
+
+    [SerializeField] private UnityEvent loseGame;
+
     private Transform optionsObject;
 
     private void Awake()
@@ -19,16 +26,17 @@ public class MenuManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name.Contains("Level"))
         {
             pauseModal = GameObject.Find("PauseModal").transform;
+            winModal = GameObject.Find("WinModal").transform;
         }
-        else 
-            Debug.Log("No pause modal found. You may not be in a level or the modal object is missing.");
+        else
+            Debug.Log("No pause/win modal found. You may not be in a level or the modal object(s) is/are missing.");
 
         // if in a level, get the pause modal
         if (SceneManager.GetActiveScene().name.Contains("Menu"))
         {
             optionsObject = GameObject.Find("OptionsScreen").transform;
         }
-        else 
+        else
             Debug.Log("No options gameobject found. You may not be in the main menu or the options object is missing.");
     }
 
@@ -36,8 +44,12 @@ public class MenuManager : MonoBehaviour
     {
         if (pauseModal != null)
             pauseModal.gameObject.SetActive(false);
+        if (winModal != null)
+            winModal.gameObject.SetActive(false);
         if (optionsObject != null)
             optionsObject.gameObject.SetActive(false);
+
+        Time.timeScale = 1;
     }
 
     private void Update()
@@ -69,6 +81,49 @@ public class MenuManager : MonoBehaviour
 
         Time.timeScale = 1;
         unpauseGame.Invoke();
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void SetBlueReadyStatus(bool isReady)
+    {
+        isBlueReady = isReady;
+        GameWin();
+    }
+    public void SetRedReadyStatus(bool isReady)
+    {
+        isRedReady = isReady;
+        GameWin();
+    }
+
+    public void GameWin()
+    {
+        if (isBlueReady && isRedReady)
+        {
+            winGame.Invoke();
+            Time.timeScale = 0;
+        }
+    }
+
+    public void GameLose()
+    {
+        loseGame.Invoke();
+        StartCoroutine(TriggerPlayerDeath());
+    }
+    private IEnumerator TriggerPlayerDeath()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in players)
+        {
+            player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            player.GetComponent<AnimationController>().Explode();
+        }
+
+        yield return new WaitForSeconds(0.5f);
+        RestartLevel();
     }
 
     public void LoadScene(string sceneName)

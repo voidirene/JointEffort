@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1128027663, guid: beace204a0bbc0240859aaa579937ebb, type: 3}
+  m_Sprite: {fileID: 103322216, guid: 20ee76aa076cd0a4c88211cf41478fd5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -189,7 +189,7 @@ Transform:
   m_GameObject: {fileID: 7950684422052168897}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7950684420945899627}
@@ -209,6 +209,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b324e1b5859de3e4a8a321b357aba5a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  acceptedTags:
+  - Player
+  - Box
   smoothTime: 1
   isPressed:
     m_PersistentCalls:
@@ -359,7 +362,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: -972414096, guid: beace204a0bbc0240859aaa579937ebb, type: 3}
+  m_Sprite: {fileID: 753506959, guid: 20ee76aa076cd0a4c88211cf41478fd5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

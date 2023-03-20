@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class Button : MonoBehaviour
 {
+    [SerializeField] private List<string> acceptedTags;
+
     private Vector3 originalPos;
     private Vector3 targetPos;
     [SerializeField] private float smoothTime = 1F;
@@ -32,18 +34,22 @@ public class Button : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Box")
+        foreach (string tag in acceptedTags)
         {
-            isPressed.Invoke();
-            shouldMoveDown = true;
+            if (other.CompareTag(tag))
+            {
+                isPressed.Invoke();
+                shouldMoveDown = true;
+            }
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Box")
+        foreach (string tag in acceptedTags)
         {
-            shouldMoveUp = true;
+            if (other.CompareTag(tag))
+                shouldMoveUp = true;
         }
     }
 

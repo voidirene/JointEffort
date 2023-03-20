@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 6847937945672111405}
   - component: {fileID: 3773167401048443692}
   - component: {fileID: 1081150611481697923}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.06}
+  m_Offset: {x: 0, y: -0.08}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -140,7 +140,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.08}
+  m_Size: {x: 1, y: 1.04}
   m_EdgeRadius: 0
 --- !u!50 &4132859113878755358
 Rigidbody2D:
@@ -209,8 +209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6024d288a0a545546b434323e73d10e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpHeight: 3
-  _maxAirJumps: 1
+  _jumpHeight: 4
+  _maxAirJumps: 0
   _downwardMovementMultiplier: 3
   _upwardMovementMultiplier: 1.7
 --- !u!114 &176545845336230258
@@ -393,7 +393,7 @@ GameObject:
   - component: {fileID: 3652037868281632875}
   - component: {fileID: 8303964439396824691}
   - component: {fileID: 5416806634131223545}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Magnet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 109551051539854597}
   - component: {fileID: 7436571802312429271}
   - component: {fileID: 3028956712276910267}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MagnetPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -538,7 +538,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5787723283713290563}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.35, y: 0, z: 0}
+  m_LocalPosition: {x: 0.35, y: -0.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -606,7 +606,7 @@ GameObject:
   - component: {fileID: 3895193318194561044}
   - component: {fileID: 919077793959378040}
   - component: {fileID: 1193969337668041445}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
