@@ -31,10 +31,12 @@ public class MenuManager : MonoBehaviour
         else
             Debug.Log("No pause/win modal found. You may not be in a level or the modal object(s) is/are missing.");
 
-        // if in a level, get the pause modal
+        // if in a level, get the pause modal and show player IDs
         if (SceneManager.GetActiveScene().name.Contains("Menu"))
         {
             optionsObject = GameObject.Find("OptionsScreen").transform;
+
+            GameObject.Find("ResearchScreen").GetComponent<SurveyIDGenerator>().ShowID();
         }
         else
             Debug.Log("No options gameobject found. You may not be in the main menu or the options object is missing.");
